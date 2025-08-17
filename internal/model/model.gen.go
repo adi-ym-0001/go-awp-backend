@@ -5,7 +5,7 @@ package model
 
 // Drawing defines model for Drawing.
 type Drawing struct {
-	ID      *string `json:"ID,omitempty"`
+	Id      *string `json:"id,omitempty"`
 	Name    *string `json:"name,omitempty"`
 	Status  *string `json:"status,omitempty"`
 	Type    *string `json:"type,omitempty"`
@@ -14,10 +14,10 @@ type Drawing struct {
 
 // LocationWithDrawings defines model for LocationWithDrawings.
 type LocationWithDrawings struct {
-	ID       *string    `json:"ID,omitempty"`
 	Area     *string    `json:"area,omitempty"`
 	Drawings *[]Drawing `json:"drawings,omitempty"`
 	Floor    *string    `json:"floor,omitempty"`
+	Id       *string    `json:"id,omitempty"`
 	Name     *string    `json:"name,omitempty"`
 }
 

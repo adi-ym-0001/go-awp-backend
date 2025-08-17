@@ -1,7 +1,7 @@
 package model
 
 type Location struct {
-	ID       string `gorm:"primaryKey"`
+	Id       string `gorm:"primaryKey"`
 	Name     string
 	Floor    string
 	Area     string

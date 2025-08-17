@@ -54,7 +54,7 @@ components:
     Drawing:
       type: object
       properties:
-        ID:
+        id:
           type: string
         name:
           type: string
@@ -68,7 +68,7 @@ components:
     LocationWithDrawings:
       type: object
       properties:
-        ID:
+        id:
           type: string
         name:
           type: string

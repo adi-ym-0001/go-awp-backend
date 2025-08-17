@@ -22,7 +22,7 @@ func (uc *DrawingUsecase) GetAll(ctx context.Context) ([]model.Drawing, error) {
 	for _, d := range raw {
 		// Entity → DTOへの変換
 		result = append(result, model.Drawing{
-			ID:      d.ID,
+			Id:      d.Id,
 			Name:    d.Name,
 			Type:    d.Type,
 			Version: d.Version,

@@ -21,9 +21,9 @@ func (r *LocationRepository) FindAllWithDrawings(ctx context.Context) ([]model.L
 }
 
 // Update はロケーションの図面情報を更新する
-func (r *LocationRepository) UpdateDrawings(ctx context.Context, locationID string, drawings []model.Drawing) error {
+func (r *LocationRepository) UpdateDrawings(ctx context.Context, locationId string, drawings []model.Drawing) error {
 	var location model.Location
-	if err := r.DB.WithContext(ctx).First(&location, "id = ?", locationID).Error; err != nil {
+	if err := r.DB.WithContext(ctx).First(&location, "id = ?", locationId).Error; err != nil {
 		return err
 	}
 	return r.DB.Model(&location).Association("Drawings").Replace(drawings)

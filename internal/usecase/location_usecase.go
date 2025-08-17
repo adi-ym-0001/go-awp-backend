@@ -27,7 +27,7 @@ func (uc *LocationUsecase) GetAll(ctx context.Context) ([]model.LocationWithDraw
 		for _, d := range loc.Drawings {
 			// Entity → DTOへの変換（ポインタ型に合わせて & を使用）
 			drawings = append(drawings, model.Drawing{
-				ID:      d.ID,
+				Id:      d.Id,
 				Name:    d.Name,
 				Type:    d.Type,
 				Version: d.Version,
@@ -37,7 +37,7 @@ func (uc *LocationUsecase) GetAll(ctx context.Context) ([]model.LocationWithDraw
 		// ロケーション情報もDTOに変換
 		// &はアドレスを返してる
 		result = append(result, model.LocationWithDrawings{
-			ID:       &loc.ID,
+			Id:       &loc.Id,
 			Name:     &loc.Name,
 			Floor:    &loc.Floor,
 			Area:     &loc.Area,
@@ -56,16 +56,16 @@ func copyPtr(s *string) *string {
 	return &str
 }
 
-func (uc *LocationUsecase) UpdateDrawings(ctx context.Context, locationID string, drawings []model.Drawing) error {
+func (uc *LocationUsecase) UpdateDrawings(ctx context.Context, locationId string, drawings []model.Drawing) error {
 	var entities []model.Drawing
 	for _, d := range drawings {
 		entities = append(entities, model.Drawing{
-			ID:      copyPtr(d.ID), // ポインタから値を取得
+			Id:      copyPtr(d.Id), // ポインタから値を取得
 			Name:    copyPtr(d.Name),
 			Type:    copyPtr(d.Type),
 			Version: copyPtr(d.Version),
 			Status:  copyPtr(d.Status),
 		})
 	}
-	return uc.Repo.UpdateDrawings(ctx, locationID, entities)
+	return uc.Repo.UpdateDrawings(ctx, locationId, entities)
 }
